@@ -1,0 +1,181 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+ 
+  <title>Minimalist Form</title>
+  <meta name="description" content="">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js" async></script>
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js"></script>
+  <style>
+    #minimalist_form .form-group, .confirm_box .form-group { margin: 0; padding-top: 12px; padding-bottom: 12px; border-bottom: 1px #e6e6e6 solid; }
+    #minimalist_form .form-group label, .confirm_box label { padding-top: 0; padding-bottom: 0; display: flex; align-items: center; font-size: 15px; font-weight: bold; }
+    #minimalist_form .form-group label.required::after { content: '必須'; position: absolute; right: 15px; padding: 2px 4px 0 4px; font-size: 12px; font-weight: normal; color: #FFF !important; background-color: #CC0000; border: none; border-radius: 2px; }
+    .bootbox .modal-header, .bootbox .modal-footer { display: block; text-align: center; border: none; }
+    .bootbox .modal-header { padding-top: 25px; } .bootbox .modal-footer { padding-bottom: 25px; }
+    .bootbox .modal-body { padding-top: 0; padding-bottom: 0; } .bootbox .modal-title { font-weight: bold; }
+  </style>
+
+</head>
+<body>
+
+  <div class="jumbotron jumbotron-fluid mb-5">
+    <div class="container">
+      <h1 class="display-5">Minimalist Form</h1>
+      <p class="lead">下記のフォームの項目を入力し送信してください。</p>
+    </div>
+  </div>
+
+  <main class="container-md">
+    <form method="post" action="send.php" id="minimalist_form">
+
+      <!-- ▼フォームの項目 -->
+
+      <div class="form-group row">
+        <label for="貴社名" class="col-lg-3 col-form-label">貴社名</label>
+        <div class="col-lg-4">
+          <input type="text" class="form-control" id="貴社名" name="貴社名" maxlength="60">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="部署名" class="col-lg-3 col-form-label">部署名</label>
+        <div class="col-lg-4">
+          <input type="text" class="form-control" id="部署名" name="部署名" maxlength="60">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="お名前" class="col-lg-3 col-form-label required">お名前</label>
+        <div class="col-lg-4">
+          <input type="text" class="form-control" id="お名前" name="お名前" maxlength="60" required>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label for="お電話番号" class="col-lg-3 col-form-label">お電話番号</label>
+        <div class="col-lg-3">
+          <input type="tel" class="form-control" id="お電話番号" name="お電話番号" maxlength="30">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="メールアドレス" class="col-lg-3 col-form-label required">メールアドレス</label>
+        <div class="col-lg-8">
+          <input type="email" class="form-control" id="メールアドレス" name="メールアドレス" maxlength="128" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="郵便番号" class="col-lg-3 col-form-label">郵便番号</label>
+        <div class="col-lg-3">
+          <input type="tel" class="form-control" id="郵便番号" name="郵便番号" maxlength="8" onchange="AjaxZip3.zip2addr( this, '', '都道府県', 'ご住所' );">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="都道府県" class="col-lg-3 col-form-label">都道府県</label>
+        <div class="col-lg-3">
+          <input type="text" class="form-control" id="都道府県" name="都道府県" maxlength="20">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="ご住所" class="col-lg-3 col-form-label">ご住所</label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="ご住所" name="ご住所" maxlength="60">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="建物名・号室" class="col-lg-3 col-form-label">建物名・号室</label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="建物名・号室" name="建物名・号室" maxlength="60">
+        </div>
+      </div>
+
+      <div class="form-group row border-0">
+        <label for="ご質問・ご要望の内容" class="col-lg-3 col-form-label required">ご質問・ご要望の内容</label>
+        <div class="col-lg-8">
+          <textarea id="ご質問・ご要望の内容" name="ご質問・ご要望の内容" class="form-control" style="height:150px;" maxlength="2500" required></textarea>
+        </div>
+      </div>
+
+      <!-- ▲フォームの項目 -->
+
+      <div class="mt-4 mb-4 text-center">
+        <button type="button" class="btn btn-dark btn-cinfirm">確認する</button>
+      </div>
+
+    </form>
+  </main>
+
+  <footer class="mt-5">
+    <p class="text-center">© 2021 Minimalist Form</p>
+  </footer>
+
+  <script>
+    $( function () {
+
+      $( '#minimalist_form .btn-cinfirm' ).on( 'click', function() {
+
+        try {
+          if ( ! $( '#minimalist_form' )[0].reportValidity() ) { return false; }  // HTML5 validation
+        } catch ( e ) {  // IE11, old etc. Does not support reportValidity()
+          // 省略...
+        }
+
+        var message = '<p class="text-center">内容に問題がなければ、送信するボタンを押してください。</p><form class="confirm_box">';
+
+        $( '#minimalist_form input, #minimalist_form select, #minimalist_form textarea' ).each( function( k, v ) {
+          message += '<div class="form-group row"><label class="col-sm-4 col-form-label">' + $( this ).attr( 'name' ) + 
+                        '</label><div class="col-sm-8">' + sanitaize.encode( $( this ).val() ) + '</div></div>';
+        } );
+        message += '</form>';
+
+        bootbox.confirm( {
+          title: '内容確認', message: message,
+          size: 'lg', centerVertical: true, scrollable: true, closeButton: false,
+          buttons: { cancel:  { label: '修正する', className: 'btn-light' }, confirm: { label: '送信する', className: 'btn-dark' } },
+          callback: function ( result ) {
+            if ( result ) {
+              bootbox.hideAll();
+
+              $.ajax( {
+                type: 'POST', url: 'send.php', timeout: 10000, cache: false, data: $( '#minimalist_form' ).serialize(), dataType: 'json'
+              } )
+              .done( function ( response, textStatus, jqXHR ) {
+		            if ( response.result === 'success' ) {
+
+                  bootbox.dialog( {
+                    title: '送信完了', message: '<p class="text-center">ありがとうございました。<br>お問い合わせいただきました内容を確認の上<br>担当者よりご連絡をさせていただきます。</p>',
+                    centerVertical: true, scrollable: true, closeButton: false,
+                    buttons: { ok: { label: '閉じる', className: 'btn-dark', callback: function () { $( '#minimalist_form' )[0].reset(); } } } } );
+		            }
+	            } )
+              .fail( function ( jqXHR, textStatus, errorThrown ) {
+	              console.log( jqXHR );
+			        } );
+
+            }
+          }
+        } );
+
+        return false;
+      } );
+    } );
+
+    sanitaize = {
+      encode: function ( str ) { return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/\n/g, '<br>'); },
+      decode: function ( str ) { return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, '\'').replace(/&amp;/g, '&'); }
+    };
+  </script>
+
+</body>
+</html>
