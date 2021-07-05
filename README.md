@@ -6,6 +6,8 @@
 
 確認画面のために、面倒なコードを追加したくないというミニマリストのためのフォームです。
 
+![スクリーンショット](https://user-images.githubusercontent.com/84831431/124436938-7d88cf80-ddb1-11eb-80ce-a388e1fd0f69.png)
+
 # DEMO
 
 https://demotestsystem.github.io/minimalist_form_bs/
