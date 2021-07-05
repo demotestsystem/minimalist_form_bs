@@ -1,5 +1,5 @@
 # Minimalist Form （ミニマリスト フォーム）
-## with bootstrap 4
+**with bootstrap 4**
 
 日本で必要とされるフォームの確認画面に対応した、とてもシンプルなフォームです。
 
