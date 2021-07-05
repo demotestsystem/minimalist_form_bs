@@ -1,4 +1,5 @@
-# Minimalist Form （ミニマリスト フォーム） with bootstrap 4
+# Minimalist Form （ミニマリスト フォーム）
+## with bootstrap 4
 
 日本で必要とされるフォームの確認画面に対応した、とてもシンプルなフォームです。
 
@@ -8,7 +9,9 @@
 
 # DEMO
 
-準備中...
+https://demotestsystem.github.io/minimalist_form_bs/
+
+※確認画面の表示まで。実際に送信することはできません。完了画面も表示されません。
 
 # Requirement
 
